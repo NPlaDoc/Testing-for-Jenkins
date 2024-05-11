@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Clone'){
         steps{
-            git 'https://github.com/NPlaDoc/Testing-for-Jenkins.git'
+            git branch: 'main', url: 'https://github.com/NPlaDoc/Testing-for-Jenkins.git'
 	}
     }			
     // stage('Run Python Script') {
