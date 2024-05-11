@@ -2,7 +2,7 @@ pipeline {
   agent any
   stages {
     stage('Clone'){
-        step{
+        steps{
             git 'https://github.com/NPlaDoc/Testing-for-Jenkins.git'
 	}
     }			
