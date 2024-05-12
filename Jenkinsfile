@@ -6,6 +6,11 @@ pipeline {
             git branch: 'main', url: 'https://github.com/NPlaDoc/Testing-for-Jenkins.git'
 	}
     }	
+    stage('install npm') {
+      steps {
+        sh 'npm install'  // This will execute the npm run dev command
+      }
+    }
     stage('Run npm dev') {
       steps {
         sh 'npm run dev'  // This will execute the npm run dev command
