@@ -5,13 +5,7 @@ pipeline {
     stages {
         stage('Expose'){
           steps{
-            sh 'docker run --name jenkins-docker --rm --detach
-          --privileged --network jenkins --network-alias docker
-          --env DOCKER_TLS_CERTDIR=/certs
-          --volume jenkins-docker-certs:/certs/client
-          --volume jenkins-data:/var/jenkins_home
-          --publish 2376:2376 --publish 3000:3000
-          docker:dind'
+            sh 'docker run --name jenkins-docker --rm --detach --privileged --network jenkins --network-alias docker --env DOCKER_TLS_CERTDIR=/certs --volume jenkins-docker-certs:/certs/client --volume jenkins-data:/var/jenkins_home --publish 2376:2376 --publish 3000:3000  docker:dind'
           }
         }
         stage('Build') {
