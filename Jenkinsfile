@@ -10,15 +10,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                !/usr/bin/env sh
-
-                set -x
-                npm install --save-dev cross-env
-                set +x
-
-                set -x
-                npm test
-                // sh './jenkins/scripts/test.sh'
+                sh './jenkins/scripts/test.sh'
             }
         }
         // stage('Deliver') {
