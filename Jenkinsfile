@@ -12,6 +12,12 @@ pipeline {
         sh 'npm install'  // This will execute the npm run dev command
       }
     }
+	stage('Test') {
+            steps {
+                sh 'chmod +x ./jenkins/scripts/test.sh'
+                sh './jenkins/scripts/test.sh'
+            }
+        }
     stage('Run npm dev') {
       steps {
         sh 'npm run dev'  // This will execute the npm run dev command
