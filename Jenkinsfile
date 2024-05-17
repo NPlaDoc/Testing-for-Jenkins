@@ -1,12 +1,6 @@
 pipeline {
-  agent {
-
-    docker {
-      image 'node:6-alpine'
-      args '-p 3000:3000'
-    }
-  }
-  tools {nodejs "Node"}
+  agent any
+  tools {nodejs "Node"} 
   stages {
     stage('Clone'){
         steps{
@@ -18,6 +12,12 @@ pipeline {
         sh 'npm install'  // This will execute the npm run dev command
       }
     }
+	// stage('Test') {
+ //            steps {
+ //                sh 'chmod +x ./jenkins/scripts/test.sh'
+ //                sh './jenkins/scripts/test.sh'
+ //            }
+ //        }
     stage('Run npm dev') {
       steps {
         sh 'npm run dev'  // This will execute the npm run dev command
