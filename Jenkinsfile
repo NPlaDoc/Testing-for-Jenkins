@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Run npm dev') {
       steps {
-        sh 'npm run dev'  // This will execute the npm run dev command
+        sh  'npm run dev'  // This will execute the npm run dev command
         //sh 'python3 /Selenium Test/main.py'
       }
     }		  
