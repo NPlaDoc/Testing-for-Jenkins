@@ -1,0 +1,80 @@
+// code block_songs animation 
+.playing-indicator {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    height: 18px;
+    min-height: 18px;
+
+    .block {
+        width: 4px;
+        background: white;
+        margin-left: 1.5px;
+        animation: movement 0.8s ease infinite 0s;
+    }
+
+    .block:nth-child(1) {
+        animation-delay: 0.2s;
+        height: 11px;
+    }
+
+    .block:nth-child(2) {
+        height: 12px;
+        animation-delay: 0.3s;
+    }
+
+    .block:nth-child(3) {
+        height: 10px;
+        animation-delay: 0.1s;
+    }
+
+    .block:nth-child(4) {
+        height: 13px;
+        animation-delay: 0.4s;
+    }
+
+    @keyframes movement {
+        0% {
+            height: 8px;
+        }
+
+        100% {
+            height: 8px;
+        }
+
+        50% {
+            height: 18px;
+        }
+    }
+}
+
+.loading-indicator {
+    width: 24px;
+    aspect-ratio: 1;
+    display: grid;
+    border-radius: 50%;
+    background:
+        linear-gradient(0deg, rgba(255, 255, 255, 0.5) 20%, #0000 0 80%, rgb(255, 255, 255) 0) 50%/15% 100%,
+        linear-gradient(90deg, rgba(255, 255, 255, 0.25) 20%, #0000 0 80%, rgba(255, 255, 255, 0.75) 0) 50%/100% 15%;
+    background-repeat: no-repeat;
+    animation: l23 1s infinite steps(12);
+
+    &::before,
+    &::after {
+        content: "";
+        grid-area: 1/1;
+        border-radius: 50%;
+        background: inherit;
+        transform: rotate(30deg);
+    }
+
+    &::after {
+        transform: rotate(60deg);
+    }
+}
+
+@keyframes l23 {
+    100% {
+        transform: rotate(1turn)
+    }
+}
