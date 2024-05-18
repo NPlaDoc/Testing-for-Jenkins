@@ -1,6 +1,6 @@
 pipeline {
   agent any
-  tools {nodejs "Node"} 
+  tools {nodejs "Node"}
   stages {
     stage('Clone'){
         steps{
@@ -12,15 +12,10 @@ pipeline {
         sh 'npm install'  // This will execute the npm run dev command
       }
     }
-	// stage('Test') {
- //            steps {
- //                sh 'chmod +x ./jenkins/scripts/test.sh'
- //                sh './jenkins/scripts/test.sh'
- //            }
- //        }
     stage('Run npm dev') {
       steps {
         sh 'npm run dev'  // This will execute the npm run dev command
+        sh '${/Selenium Test} main.py'
       }
     }		  
     // stage('Run Python Script') {
